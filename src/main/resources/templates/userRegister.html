@@ -1,0 +1,50 @@
+<!doctype html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"          >
+</head>
+<body>
+<!--start codes-->
+
+<form th:method="post" th:action="@{/userRegister}" th:object="${form_key}" class="form">
+    <div class="container">
+        <div class="row">
+            <div th:text="#{userName}" class="col-md-2">:</div>
+            <div class="col-md-10 form-group">
+                <input th:field="*{userName}" type="text" class="form-control" autofocus>
+                <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+            </div>
+
+            <div th:text="#{userMail}" class="col-md-2">:</div>
+            <div class="col-md-10 form-group">
+                <input th:field="*{userMail}" type="text" class="form-control">
+                <div th:if="${#fields.hasErrors('userMail')}" th:errors="*{userMail}"></div>
+            </div>
+
+            <div th:text="#{userPassword}" class="col-md-2">:</div>
+            <div class="col-md-10 form-group">
+                <input th:field="*{userPassword}" type="text" class="form-control">
+                <div th:if="${#fields.hasErrors('userPassword')}" th:errors="*{userPassword}"></div>
+            </div>
+
+            <div class="col-md-2"></div>
+            <div class="col-md-10 form-group">
+                <input type="reset" class="btn btn-danger" value="Temizle">
+                <input type="submit" class="btn btn-primary" value="Kayıt Ol">
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+<!--end codes-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
